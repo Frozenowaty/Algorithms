@@ -88,6 +88,16 @@ public class LinkedList<T> implements IList<T> {
         size--;
 
     }
+
+    @Override
+    public void swap(int index1, int index2) {
+        checkGetBounds(index1);
+        checkGetBounds(index2);
+        T tmp = get(index1);
+        set(get(index2),index1);
+        set(tmp,index2);
+    }
+
     private void checkGetBounds(int index) {
         if (index < 0 || index > size - 1) {
             throw new IndexOutOfBoundsException();

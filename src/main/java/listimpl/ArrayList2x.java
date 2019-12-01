@@ -92,6 +92,16 @@ public class ArrayList2x<T> implements IList<T> {
         array = tmp;
         size--;
     }
+
+    @Override
+    public void swap(int index1, int index2) {
+        checkGetBounds(index1);
+        checkGetBounds(index2);
+        T tmp = array[index1];
+        array[index1]=array[index2];
+        array[index2]=tmp;
+    }
+
     private void extendTable() {
         T[] tmp = (T[]) new Object[array.length * lengthMultiplier];
         for (int i = 0; i < array.length; i++) {
